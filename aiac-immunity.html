@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The AIAC's Invisible Shield — Nivedha at the Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,500&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #ECE1C6;
+      --ink: #1A1612;
+      --port: #6E1F2D;
+      --port-dark: #4d1520;
+      --brass: #A47E35;
+      --bone: #F4EBD1;
+      --mist: rgba(164,126,53,0.2);
+    }
+    body { background-color: var(--port-dark); color: var(--bone); font-family: 'Source Serif 4', Georgia, serif; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      background-color: var(--port-dark);
+      border-bottom: 1px solid rgba(164,126,53,0.3);
+      padding: 22px 48px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .nav-title { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--bone); text-decoration: none; }
+    .nav-title em { font-style: italic; font-weight: 500; }
+    .nav-back { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); text-decoration: none; }
+    .nav-back:hover { color: var(--bone); }
+
+    .article { max-width: 700px; margin: 0 auto; padding: 0 48px 80px; }
+
+    /* MASTHEAD */
+    .masthead { background: linear-gradient(160deg, var(--port) 0%, var(--port-dark) 60%, var(--ink) 100%); padding: 72px 48px 64px; border-bottom: 2px solid var(--brass); }
+    .masthead-inner { max-width: 700px; margin: 0 auto; }
+    .masthead-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 20px; }
+    .masthead-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4vw, 40px); font-weight: 500; font-style: italic; color: var(--bone); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 24px; }
+    .masthead-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b5e4a; padding-top: 20px; border-top: 1px solid #3a3028; }
+
+    /* SECTIONS */
+    section { padding: 48px 0; border-bottom: 1px solid var(--mist); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 16px; }
+    .finding-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9707e; margin-bottom: 8px; }
+
+    p { font-size: 18px; line-height: 1.8; color: rgba(244,235,209,0.8); margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* NUMBERED ISSUES */
+    .numbered-list { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+    .numbered-item { display: grid; grid-template-columns: 32px 1fr; gap: 8px; }
+    .numbered-item .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); font-weight: 500; padding-top: 4px; }
+    .numbered-item p { margin: 0; }
+
+    /* PULL QUOTE */
+    .pullquote-section { background-color: var(--port); margin: 0 -40px; padding: 56px 40px; border-bottom: none; }
+    .pullquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 3vw, 26px); font-weight: 400; font-style: italic; color: var(--bone); line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 20px; }
+    .pullquote-source { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin: 0; }
+    .pullquote-mark { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; color: var(--brass); margin-bottom: 20px; }
+
+    /* TAKEAWAYS */
+    .takeaways-section { background-color: var(--ink); margin: 0 -40px; padding: 56px 40px; }
+    .takeaways-section .section-label { color: var(--brass); }
+    .takeaway-item { display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 18px 0; border-bottom: 1px solid #3a3028; }
+    .takeaway-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .takeaway-dash { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); padding-top: 3px; }
+    .takeaway-item p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--bone); }
+
+    /* SIGN-OFF */
+    .signoff { padding: 48px 0 0; }
+    .signoff p { margin-bottom: 8px; }
+    .signoff-name { font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-style: italic; color: var(--bone); }
+    .signoff-mark { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--brass); margin-top: 8px !important; }
+
+    footer { background-color: var(--ink); padding: 32px 40px; text-align: center; border-top: 2px solid var(--brass); }
+    footer p { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b5e4a; line-height: 1.8; font-size: 10px; margin: 0; }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .masthead { padding: 40px 20px 36px; }
+      .masthead-inner { padding: 0; }
+      .article { padding: 0 20px 60px; }
+      .pullquote-section { margin: 0 -20px; padding: 40px 20px; }
+      .takeaways-section { margin: 0 -20px; padding: 40px 20px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-title">Nivedha <em>at the Bar</em></a>
+    <a href="index.html" class="nav-back">&larr; All Publications</a>
+  </nav>
+
+  <div class="masthead">
+    <div class="masthead-inner">
+      <p class="masthead-tag">CIPAA &nbsp;·&nbsp; Adjudication &nbsp;·&nbsp; Judicial Review</p>
+      <h1 class="masthead-title">The AIAC's "Invisible Shield": Why Judicial Review Cannot Bypass Statutory Immunity</h1>
+      <p class="masthead-meta">23 May 2026 &nbsp;·&nbsp; Saturday Soliloquies</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">This Issue</p>
+      <p>In statutory adjudication, the Asian International Arbitration Centre acts as the central administrative authority. When a party disputes an adjudicator's appointment or the AIAC's administrative fees, can it sidestep the adjudication process by commencing judicial review against the AIAC itself? The Federal Court answered this decisively in <em>Asian International Arbitration Centre v One Amerin Residence Sdn Bhd &amp; Ors</em> [2025] 2 MLJ 634.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Facts</p>
+      <p>The dispute arose from a payment claim between One Amerin Residence and its contractor, Ragawang Corp. After Ragawang initiated adjudication proceedings under CIPAA, One Amerin challenged three things: the validity of the adjudicator's appointment, the legality of the AIAC Rules, and the AIAC's authority to impose administrative fees.</p>
+      <p>One Amerin then commenced judicial review proceedings, seeking to quash the appointment and challenge the AIAC's administrative framework — effectively attempting to use the courts to derail the adjudication before it concluded.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Issues</p>
+      <p>Three questions arose for the Federal Court:</p>
+      <div class="numbered-list">
+        <div class="numbered-item"><span class="num">01</span><p>Does the AIAC's statutory immunity extend to its administration of domestic adjudications under CIPAA, or only to its international arbitration functions?</p></div>
+        <div class="numbered-item"><span class="num">02</span><p>Do immunity provisions covering "suit" and "other legal process" extend to judicial review proceedings?</p></div>
+        <div class="numbered-item"><span class="num">03</span><p>What must a party show to displace the AIAC's immunity?</p></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="pullquote-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="pullquote-mark">⁂</p>
+      <p class="pullquote">"The AIAC cannot be turned into a collateral litigation target to stall adjudication. Its immunity functions as a protective shield — not impenetrable, but formidable."</p>
+      <p class="pullquote-source">Federal Court, [2025] 2 MLJ 634</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">The Findings</p>
+
+      <p class="finding-label">01 &nbsp;·&nbsp; Functional but practically absolute immunity</p>
+      <p>The AIAC is a supranational organisation established under a host country agreement between Malaysia and AALCO. Under the International Organizations (Privileges and Immunities) Act 1992, it enjoys functional immunity which, within the scope of its functions, operates in substance as effectively absolute — subject only to bad faith or ultra vires conduct.</p>
+
+      <p class="finding-label">02 &nbsp;·&nbsp; No international/domestic distinction</p>
+      <p>The Court of Appeal had held that immunity applied only when the AIAC acted as an international arbitral institution, not when administering domestic adjudications under CIPAA. The Federal Court rejected this. The AIAC's mandate extends broadly across ADR functions, and CIPAA adjudication falls squarely within them.</p>
+
+      <p class="finding-label">03 &nbsp;·&nbsp; Judicial review falls within "suit" and "legal process"</p>
+      <p>The terms "suit" and "other legal process" must be interpreted broadly. Judicial review is included. A narrower reading would undermine the legislative intent of protecting the AIAC's independence and would create an obvious tactical loophole.</p>
+
+      <p class="finding-label">04 &nbsp;·&nbsp; Presumption of legality</p>
+      <p>Acts of an international organisation are cloaked with a presumption of legality. To overcome immunity, a party must show ultra vires conduct or bad faith — dishonesty, malice, or abuse of power. On the facts, the adjudicator was validly appointed, the AIAC Rules were lawfully made, and the administrative fees were validly imposed.</p>
+
+      <p class="finding-label">05 &nbsp;·&nbsp; Immunity clauses are not ouster clauses</p>
+      <p>The IOPIA and section 34(1) of CIPAA do not remove the High Court's jurisdiction. They shield the AIAC from proceedings where it acts in good faith within its functions. The distinction matters: jurisdiction is intact; the AIAC is simply protected from being made a defendant.</p>
+    </section>
+
+  </div>
+
+  <div class="takeaways-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="section-label">Takeaways</p>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>CIPAA's policy of fast, efficient adjudication is reinforced. The AIAC's role as gatekeeper is protected.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>Judicial review cannot be used tactically to derail adjudication proceedings against the AIAC.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>Immunity is not absolute. Bad faith or ultra vires conduct remains a viable route to challenge — but the threshold is high.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>If dissatisfied with an adjudication outcome, the proper remedy is a section 15 CIPAA set-aside application — not proceedings against the AIAC itself.</p></div>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="signoff">
+      <p>Until next Saturday.</p>
+      <p class="signoff-name">Nivedha</p>
+      <p class="signoff-mark">⁂</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Nivedha at the Bar &nbsp;·&nbsp; Saturday Soliloquies</p>
+    <p style="margin-top:6px;"><a href="index.html" style="color:#A47E35;text-decoration:none;">&larr; Back to all publications</a></p>
+    <p style="margin-top:20px;padding-top:16px;border-top:1px solid #2e2018;font-size:9px;letter-spacing:0.06em;text-transform:none;line-height:1.8;color:#4a3e30;max-width:640px;margin-left:auto;margin-right:auto;">All content published herein (\"Content\") is provided for educational and informational purposes only and does not constitute legal or professional advice in any form or in relation to any specific matter. While reasonable efforts have been made to ensure accuracy, the author does not warrant or guarantee the completeness or correctness of the Content and expressly disclaims all liability for any loss or damage arising from any reliance placed on, or use made of, any part of the Content.</p>
+  </footer>
+
+</body>
+</html>

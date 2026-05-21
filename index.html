@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nivedha at the Bar — Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #ECE1C6;
+      --ink: #1A1612;
+      --port: #6E1F2D;
+      --port-dark: #4d1520;
+      --port-mid: #8a2a3a;
+      --brass: #A47E35;
+      --bone: #F4EBD1;
+      --mist: #c8b99a;
+      --shadow: #3a1018;
+    }
+    body { background-color: var(--port-dark); color: var(--bone); font-family: 'Source Serif 4', Georgia, serif; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav {
+      background-color: var(--port-dark);
+      border-bottom: 1px solid rgba(164,126,53,0.3);
+      padding: 22px 48px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: baseline; gap: 20px; }
+    .nav-title { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 400; color: var(--bone); text-decoration: none; }
+    .nav-title em { font-style: italic; font-weight: 500; }
+    .nav-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); }
+    .nav-about { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); text-decoration: none; }
+    .nav-about:hover { color: var(--bone); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, var(--port) 0%, var(--port-dark) 60%, var(--ink) 100%);
+      padding: 96px 48px 80px;
+      border-bottom: 2px solid var(--brass);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '⁂';
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 240px;
+      color: rgba(164,126,53,0.06);
+      font-family: serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 960px; margin: 0 auto; position: relative; }
+    .hero-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 28px; }
+    .hero-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(48px, 7vw, 88px); font-weight: 400; color: var(--bone); line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 28px; }
+    .hero-title em { font-style: italic; font-weight: 500; color: var(--brass); }
+    .hero-desc { font-size: 17px; line-height: 1.75; color: rgba(244,235,209,0.65); max-width: 500px; }
+    .hero-rule { border: none; border-top: 1px solid rgba(164,126,53,0.2); margin: 48px 0 0; }
+
+    /* ARCHIVE */
+    .archive-wrap { background-color: var(--port-dark); min-height: 100vh; }
+    .archive { max-width: 960px; margin: 0 auto; padding: 64px 48px 96px; }
+    .archive-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 40px; }
+
+    /* CARDS */
+    .issues-grid { display: flex; flex-direction: column; gap: 2px; }
+
+    .issue-card {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      background-color: rgba(255,255,255,0.03);
+      border: 1px solid rgba(164,126,53,0.15);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s, border-color 0.2s;
+      overflow: hidden;
+    }
+    .issue-card:hover {
+      background-color: rgba(164,126,53,0.08);
+      border-color: rgba(164,126,53,0.4);
+    }
+
+    .issue-photo {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background-color: var(--shadow);
+      flex-shrink: 0;
+    }
+    .issue-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+      filter: sepia(20%) saturate(80%);
+    }
+    .issue-card:hover .issue-photo img { transform: scale(1.04); filter: sepia(10%) saturate(90%); }
+
+    .issue-body {
+      padding: 32px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      border-left: 3px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .issue-card:hover .issue-body { border-left-color: var(--brass); }
+
+    .issue-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); }
+    .issue-title { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 500; font-style: italic; color: var(--bone); line-height: 1.3; letter-spacing: -0.01em; }
+    .issue-desc { font-size: 15px; line-height: 1.65; color: rgba(244,235,209,0.55); }
+    .issue-read { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); margin-top: 4px; }
+
+    /* DIVIDER between cards */
+    .issue-card + .issue-card { margin-top: 1px; }
+
+    /* FOOTER */
+    footer { background-color: var(--ink); border-top: 2px solid var(--brass); padding: 40px 48px; text-align: center; }
+    .footer-mark { font-size: 22px; color: var(--brass); display: block; margin-bottom: 14px; font-family: serif; }
+    footer p { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b5e4a; line-height: 1.9; }
+
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 56px 20px 48px; }
+      .hero::before { display: none; }
+      .archive { padding: 40px 20px 64px; }
+      .issue-card { grid-template-columns: 1fr; }
+      .issue-photo { aspect-ratio: 16/9; }
+      .issue-body { padding: 24px 20px; border-left: none; border-top: 3px solid transparent; }
+      .issue-card:hover .issue-body { border-top-color: var(--brass); border-left-color: transparent; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">
+      <a href="index.html" class="nav-title">Nivedha <em>at the Bar</em></a>
+      <span class="nav-tag">Saturday Soliloquies</span>
+    </div>
+    <a href="about.html" class="nav-about">About</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-label">Archive &nbsp;·&nbsp; All Publications</p>
+      <h1 class="hero-title">Nivedha<br><em>at the Bar</em></h1>
+      <p class="hero-desc">A weekly read on Malaysian construction law — covering cases on construction and engineering disputes, infrastructure projects, and updates in litigation practice. Written by a lawyer for professionals across the construction, engineering, and infrastructure sectors.</p>
+      <hr class="hero-rule" />
+    </div>
+  </div>
+
+  <div class="archive-wrap">
+    <div class="archive">
+      <p class="archive-label">⁂ &nbsp; Every Publication</p>
+
+      <div class="issues-grid">
+
+        <a href="aiac-immunity.html" class="issue-card">
+          <div class="issue-photo">
+            <img src="https://picsum.photos/seed/aiac2026/520/390" alt="AIAC immunity issue" />
+          </div>
+          <div class="issue-body">
+            <p class="issue-meta">23 May 2026 &nbsp;·&nbsp; CIPAA &middot; Adjudication &middot; Judicial Review</p>
+            <p class="issue-title">The AIAC's "Invisible Shield": Why Judicial Review Cannot Bypass Statutory Immunity</p>
+            <p class="issue-desc">Federal Court confirms the AIAC's immunity covers domestic CIPAA adjudication and extends to judicial review proceedings.</p>
+            <p class="issue-read">Read &rarr;</p>
+          </div>
+        </a>
+
+        <a href="yuk-tung.html" class="issue-card">
+          <div class="issue-photo">
+            <img src="https://picsum.photos/seed/yukTung2026/520/390" alt="Yuk Tung v Daya CMT" />
+          </div>
+          <div class="issue-body">
+            <p class="issue-meta">9 May 2026 &nbsp;·&nbsp; Construction &middot; Termination &middot; LAD</p>
+            <p class="issue-title">Termination Justified: When LAD Follows the Contractor Out the Door</p>
+            <p class="issue-desc">Court of Appeal restores a RM23.3 million LAD award — termination for failing to proceed regularly and diligently does not extinguish the delay claim.</p>
+            <p class="issue-read">Read &rarr;</p>
+          </div>
+        </a>
+
+        <a href="view-esteem.html" class="issue-card">
+          <div class="issue-photo">
+            <img src="https://picsum.photos/seed/viewEsteem2026/520/390" alt="View Esteem v Bina Puri" />
+          </div>
+          <div class="issue-body">
+            <p class="issue-meta">2 May 2026 &nbsp;·&nbsp; CIPAA &middot; Natural Justice &middot; Adjudication</p>
+            <p class="issue-title">The Respondent's Second Chance: Raising New Defences in Adjudication</p>
+            <p class="issue-desc">Federal Court holds that a respondent is not capped by the Payment Response — natural justice requires the Adjudication Response to remain open.</p>
+            <p class="issue-read">Read &rarr;</p>
+          </div>
+        </a>
+
+        <a href="anas-construction.html" class="issue-card">
+          <div class="issue-photo">
+            <img src="https://picsum.photos/seed/anasConstruct2026/520/390" alt="Anas Construction v JKP" />
+          </div>
+          <div class="issue-body">
+            <p class="issue-meta">25 April 2026 &nbsp;·&nbsp; CIPAA &middot; Adjudicator Jurisdiction</p>
+            <p class="issue-title">The Adjudicator's Boundary: Why Jurisdiction Cannot Be Rescued from Outside the Claim</p>
+            <p class="issue-desc">An adjudicator cannot import materials outside the Payment Claim to shore up a deficient claim — jurisdiction is bounded by the claim documents.</p>
+            <p class="issue-read">Read &rarr;</p>
+          </div>
+        </a>
+
+        <a href="econpile-cipaa-stay.html" class="issue-card">
+          <div class="issue-photo">
+            <img src="https://picsum.photos/seed/econpile2026/520/390" alt="Econpile v ASM Development" />
+          </div>
+          <div class="issue-body">
+            <p class="issue-meta">18 April 2026 &nbsp;·&nbsp; CIPAA &middot; Enforcement &middot; Section 16 Stay</p>
+            <p class="issue-title">The Point of No Return: Why You Cannot Stay an Adjudication Decision After Enforcement</p>
+            <p class="issue-desc">Once an enforcement order is granted under s28 CIPAA, the s16 stay mechanism is spent. You cannot undo what you allowed to be done.</p>
+            <p class="issue-read">Read &rarr;</p>
+          </div>
+        </a>
+
+        <a href="tindak-murni.html" class="issue-card">
+          <div class="issue-photo">
+            <img src="https://picsum.photos/seed/tindakMurni2026/520/390" alt="Tindak Murni v Juang Setia" />
+          </div>
+          <div class="issue-body">
+            <p class="issue-meta">11 April 2026 &nbsp;·&nbsp; Arbitration &middot; JID &middot; Section 10 AA 2005</p>
+            <p class="issue-title">The Arbitration Clause That Survived a Judgment in Default</p>
+            <p class="issue-desc">Section 10 AA 2005 is mandatory — an arbitration clause survives a JID, and a party who agreed to arbitrate will be held to it.</p>
+            <p class="issue-read">Read &rarr;</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-mark">⁂</span>
+    <p>Nivedha at the Bar &nbsp;·&nbsp; Saturday Soliloquies</p>
+    <p>Malaysian law &nbsp;·&nbsp; Every Saturday</p>
+    <p style="margin-top:20px;padding-top:16px;border-top:1px solid #2e2018;font-size:9px;letter-spacing:0.06em;text-transform:none;line-height:1.8;color:#4a3e30;max-width:640px;margin-left:auto;margin-right:auto;">All content published herein ("Content") is provided for educational and informational purposes only and does not constitute legal or professional advice in any form or in relation to any specific matter. While reasonable efforts have been made to ensure accuracy, the author does not warrant or guarantee the completeness or correctness of the Content and expressly disclaims all liability for any loss or damage arising from any reliance placed on, or use made of, any part of the Content.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Adjudicator's Boundary — Nivedha at the Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,500&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #ECE1C6;
+      --ink: #1A1612;
+      --port: #6E1F2D;
+      --port-dark: #4d1520;
+      --brass: #A47E35;
+      --bone: #F4EBD1;
+      --mist: rgba(164,126,53,0.2);
+    }
+    body { background-color: var(--port-dark); color: var(--bone); font-family: 'Source Serif 4', Georgia, serif; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      background-color: var(--port-dark);
+      border-bottom: 1px solid rgba(164,126,53,0.3);
+      padding: 22px 48px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .nav-title { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--bone); text-decoration: none; }
+    .nav-title em { font-style: italic; font-weight: 500; }
+    .nav-back { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); text-decoration: none; }
+    .nav-back:hover { color: var(--bone); }
+
+    .article { max-width: 700px; margin: 0 auto; padding: 0 48px 80px; }
+
+    .masthead { background: linear-gradient(160deg, var(--port) 0%, var(--port-dark) 60%, var(--ink) 100%); padding: 72px 48px 64px; border-bottom: 2px solid var(--brass); }
+    .masthead-inner { max-width: 700px; margin: 0 auto; }
+    .masthead-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 20px; }
+    .masthead-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4vw, 40px); font-weight: 500; font-style: italic; color: var(--bone); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 24px; }
+    .masthead-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b5e4a; padding-top: 20px; border-top: 1px solid #3a3028; }
+
+    section { padding: 48px 0; border-bottom: 1px solid var(--mist); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 16px; }
+    .finding-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9707e; margin-bottom: 8px; }
+
+    p { font-size: 18px; line-height: 1.8; color: rgba(244,235,209,0.8); margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+
+    .numbered-list { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+    .numbered-item { display: grid; grid-template-columns: 32px 1fr; gap: 8px; }
+    .numbered-item .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); font-weight: 500; padding-top: 4px; }
+    .numbered-item p { margin: 0; }
+
+    .pullquote-section { background-color: var(--port); margin: 0 -40px; padding: 56px 40px; border-bottom: none; }
+    .pullquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 3vw, 26px); font-weight: 400; font-style: italic; color: var(--bone); line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 20px; }
+    .pullquote-source { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin: 0; }
+    .pullquote-mark { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; color: var(--brass); margin-bottom: 20px; }
+
+    .takeaways-section { background-color: var(--ink); margin: 0 -40px; padding: 56px 40px; }
+    .takeaways-section .section-label { color: var(--brass); }
+    .takeaway-item { display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 18px 0; border-bottom: 1px solid #3a3028; }
+    .takeaway-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .takeaway-dash { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); padding-top: 3px; }
+    .takeaway-item p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--bone); }
+
+    .signoff { padding: 48px 0 0; }
+    .signoff p { margin-bottom: 8px; }
+    .signoff-name { font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-style: italic; color: var(--bone); }
+    .signoff-mark { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--brass); margin-top: 8px !important; }
+
+    footer { background-color: var(--ink); padding: 32px 40px; text-align: center; border-top: 2px solid var(--brass); }
+    footer p { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b5e4a; line-height: 1.8; font-size: 10px; margin: 0; }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .masthead { padding: 40px 20px 36px; }
+      .masthead-inner { padding: 0; }
+      .article { padding: 0 20px 60px; }
+      .pullquote-section { margin: 0 -20px; padding: 40px 20px; }
+      .takeaways-section { margin: 0 -20px; padding: 40px 20px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-title">Nivedha <em>at the Bar</em></a>
+    <a href="index.html" class="nav-back">&larr; All Publications</a>
+  </nav>
+
+  <div class="masthead">
+    <div class="masthead-inner">
+      <p class="masthead-tag">CIPAA &nbsp;·&nbsp; Adjudicator Jurisdiction &nbsp;·&nbsp; Payment Claim</p>
+      <h1 class="masthead-title">The Adjudicator's Boundary: Why Jurisdiction Cannot Be Rescued from Outside the Claim</h1>
+      <p class="masthead-meta">25 April 2026 &nbsp;·&nbsp; Saturday Soliloquies</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">This Issue</p>
+      <p>An adjudicator's jurisdiction under CIPAA is not a general mandate to do justice — it is a specific authority defined by the Payment Claim and Payment Response. What happens when an adjudicator reaches beyond those documents to rescue a deficient claim? The High Court in <em>Anas Construction Sdn Bhd v JKP Sdn Bhd</em> [2021] 2 CLJ 665 held that such a rescue is itself ultra vires.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Facts</p>
+      <p>Anas Construction submitted a Payment Claim under CIPAA. The Payment Claim contained deficiencies — certain heads of claim were not adequately particularised within the claim document itself. The adjudicator, seeking to resolve the dispute on its merits, drew on materials outside the Payment Claim and Payment Response to supplement and shore up the deficient portions.</p>
+      <p>JKP challenged the adjudication decision on the basis that the adjudicator had exceeded jurisdiction by going outside the four corners of the claim documents.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Issues</p>
+      <p>Three questions arose:</p>
+      <div class="numbered-list">
+        <div class="numbered-item"><span class="num">01</span><p>Is an adjudicator's jurisdiction strictly bounded by the Payment Claim and Payment Response?</p></div>
+        <div class="numbered-item"><span class="num">02</span><p>Can an adjudicator unilaterally supplement a deficient claim by reference to materials outside the claim documents?</p></div>
+        <div class="numbered-item"><span class="num">03</span><p>What is the consequence where an adjudicator acts in excess of jurisdiction?</p></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="pullquote-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="pullquote-mark">⁂</p>
+      <p class="pullquote">"The adjudicator is master of their own procedure — but only within the four walls of the dispute as framed by the parties. They cannot rebuild the claim from outside."</p>
+      <p class="pullquote-source">High Court, [2021] 2 CLJ 665</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">The Findings</p>
+
+      <p class="finding-label">01 &nbsp;·&nbsp; Jurisdiction is claim-based, not dispute-based</p>
+      <p>Under CIPAA, the adjudicator's authority is derived from and limited to what the claimant puts in its Payment Claim and what the respondent puts in its Payment Response. The adjudicator has no freestanding mandate to resolve whatever dispute might exist between the parties — only the dispute as those documents define it.</p>
+
+      <p class="finding-label">02 &nbsp;·&nbsp; No power to rescue a deficient claim</p>
+      <p>Where a Payment Claim is deficient, the adjudicator cannot fill the gap by importing materials from outside the claim documents. To do so is to exercise jurisdiction that was never conferred. The deficiency in the claim is the claimant's problem to address — not the adjudicator's to cure.</p>
+
+      <p class="finding-label">03 &nbsp;·&nbsp; Distinguished from procedural latitude</p>
+      <p>This does not mean adjudicators are procedurally straitjacketed. They retain wide latitude in how they conduct the proceedings — gathering evidence, requesting further submissions, directing the parties. The prohibition is specific: it goes to the substantive scope of the dispute, not the mechanics of the hearing.</p>
+
+      <p class="finding-label">04 &nbsp;·&nbsp; Jurisdictional excess vitiates the decision</p>
+      <p>An adjudication decision made in excess of jurisdiction is void in the affected part and potentially as a whole. The court set aside the decision to the extent it was premised on the improperly imported materials.</p>
+    </section>
+
+  </div>
+
+  <div class="takeaways-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="section-label">Takeaways</p>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>Draft your Payment Claim with care. What you leave out cannot be rescued by the adjudicator — and cannot be imported later.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>Jurisdiction is a ceiling, not a floor. Adjudicators work within the scope of the claim and response; they cannot expand it on their own initiative.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>A decision tainted by jurisdictional excess can be set aside under s15 CIPAA. If the adjudicator has gone outside the claim documents, challenge it.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>Adjudicators retain wide procedural discretion. The prohibition is specifically against expanding the substantive scope of the dispute — not against how the hearing is run.</p></div>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="signoff">
+      <p>Until next Saturday.</p>
+      <p class="signoff-name">Nivedha</p>
+      <p class="signoff-mark">⁂</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Nivedha at the Bar &nbsp;·&nbsp; Saturday Soliloquies</p>
+    <p style="margin-top:6px;"><a href="index.html" style="color:#A47E35;text-decoration:none;">&larr; Back to all publications</a></p>
+    <p style="margin-top:20px;padding-top:16px;border-top:1px solid #2e2018;font-size:9px;letter-spacing:0.06em;text-transform:none;line-height:1.8;color:#4a3e30;max-width:640px;margin-left:auto;margin-right:auto;">All content published herein (\"Content\") is provided for educational and informational purposes only and does not constitute legal or professional advice in any form or in relation to any specific matter. While reasonable efforts have been made to ensure accuracy, the author does not warrant or guarantee the completeness or correctness of the Content and expressly disclaims all liability for any loss or damage arising from any reliance placed on, or use made of, any part of the Content.</p>
+  </footer>
+
+</body>
+</html>

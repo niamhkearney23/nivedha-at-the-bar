@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termination Justified — Nivedha at the Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,500&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #ECE1C6;
+      --ink: #1A1612;
+      --port: #6E1F2D;
+      --port-dark: #4d1520;
+      --brass: #A47E35;
+      --bone: #F4EBD1;
+      --mist: rgba(164,126,53,0.2);
+    }
+    body { background-color: var(--port-dark); color: var(--bone); font-family: 'Source Serif 4', Georgia, serif; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      background-color: var(--port-dark);
+      border-bottom: 1px solid rgba(164,126,53,0.3);
+      padding: 22px 48px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .nav-title { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--bone); text-decoration: none; }
+    .nav-title em { font-style: italic; font-weight: 500; }
+    .nav-back { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); text-decoration: none; }
+    .nav-back:hover { color: var(--bone); }
+
+    .article { max-width: 700px; margin: 0 auto; padding: 0 48px 80px; }
+
+    .masthead { background: linear-gradient(160deg, var(--port) 0%, var(--port-dark) 60%, var(--ink) 100%); padding: 72px 48px 64px; border-bottom: 2px solid var(--brass); }
+    .masthead-inner { max-width: 700px; margin: 0 auto; }
+    .masthead-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 20px; }
+    .masthead-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4vw, 40px); font-weight: 500; font-style: italic; color: var(--bone); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 24px; }
+    .masthead-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b5e4a; padding-top: 20px; border-top: 1px solid #3a3028; }
+
+    section { padding: 48px 0; border-bottom: 1px solid var(--mist); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 16px; }
+    .finding-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9707e; margin-bottom: 8px; }
+
+    p { font-size: 18px; line-height: 1.8; color: rgba(244,235,209,0.8); margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+
+    .numbered-list { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+    .numbered-item { display: grid; grid-template-columns: 32px 1fr; gap: 8px; }
+    .numbered-item .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); font-weight: 500; padding-top: 4px; }
+    .numbered-item p { margin: 0; }
+
+    .pullquote-section { background-color: var(--port); margin: 0 -40px; padding: 56px 40px; border-bottom: none; }
+    .pullquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 3vw, 26px); font-weight: 400; font-style: italic; color: var(--bone); line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 20px; }
+    .pullquote-source { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin: 0; }
+    .pullquote-mark { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; color: var(--brass); margin-bottom: 20px; }
+
+    .takeaways-section { background-color: var(--ink); margin: 0 -40px; padding: 56px 40px; }
+    .takeaways-section .section-label { color: var(--brass); }
+    .takeaway-item { display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 18px 0; border-bottom: 1px solid #3a3028; }
+    .takeaway-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .takeaway-dash { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); padding-top: 3px; }
+    .takeaway-item p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--bone); }
+
+    .signoff { padding: 48px 0 0; }
+    .signoff p { margin-bottom: 8px; }
+    .signoff-name { font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-style: italic; color: var(--bone); }
+    .signoff-mark { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--brass); margin-top: 8px !important; }
+
+    footer { background-color: var(--ink); padding: 32px 40px; text-align: center; border-top: 2px solid var(--brass); }
+    footer p { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b5e4a; line-height: 1.8; font-size: 10px; margin: 0; }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .masthead { padding: 40px 20px 36px; }
+      .masthead-inner { padding: 0; }
+      .article { padding: 0 20px 60px; }
+      .pullquote-section { margin: 0 -20px; padding: 40px 20px; }
+      .takeaways-section { margin: 0 -20px; padding: 40px 20px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-title">Nivedha <em>at the Bar</em></a>
+    <a href="index.html" class="nav-back">&larr; All Publications</a>
+  </nav>
+
+  <div class="masthead">
+    <div class="masthead-inner">
+      <p class="masthead-tag">Construction &nbsp;·&nbsp; Termination &nbsp;·&nbsp; LAD</p>
+      <h1 class="masthead-title">Termination Justified: When LAD Follows the Contractor Out the Door</h1>
+      <p class="masthead-meta">9 May 2026 &nbsp;·&nbsp; Saturday Soliloquies</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">This Issue</p>
+      <p>When a contractor consistently fails to proceed with the works regularly and diligently, the employer may terminate. But can the employer also recover full Liquidated and Ascertained Damages for the delay period — even after termination? The Court of Appeal in <em>Yuk Tung Concrete Sdn Bhd v Daya CMT Sdn Bhd</em> [2020] 1 LNS 1314 said yes, and restored an award of RM23.3 million.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Facts</p>
+      <p>Daya CMT engaged Yuk Tung Concrete as contractor for a construction project. From the outset, Yuk Tung failed to mobilise adequate resources and consistently fell behind programme. Daya CMT issued multiple notices of default. Yuk Tung failed to remedy the position to a satisfactory standard.</p>
+      <p>Daya CMT terminated the contract and claimed full LAD for the period of delay attributable to Yuk Tung's defaults. At first instance, the LAD award was reduced by the trial court. Daya CMT appealed, seeking restoration of the full sum.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Issues</p>
+      <p>Three questions arose for the Court of Appeal:</p>
+      <div class="numbered-list">
+        <div class="numbered-item"><span class="num">01</span><p>What is the standard for "failing to proceed regularly and diligently" as a ground of contractual termination?</p></div>
+        <div class="numbered-item"><span class="num">02</span><p>Does an employer's election to terminate the contract extinguish or reduce its right to claim LAD for the delay period?</p></div>
+        <div class="numbered-item"><span class="num">03</span><p>Was Daya CMT entitled to rely on the accumulation of defaults over the project — or only the final triggering default — when exercising termination?</p></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="pullquote-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="pullquote-mark">⁂</p>
+      <p class="pullquote">"LAD is not a penalty for termination — it is compensation for delay. Once the contractor causes the delay, the employer does not forfeit that remedy by choosing to terminate."</p>
+      <p class="pullquote-source">Court of Appeal, [2020] 1 LNS 1314</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">The Findings</p>
+
+      <p class="finding-label">01 &nbsp;·&nbsp; Regular and diligent progress — an objective test</p>
+      <p>The court applied an objective standard: would a reasonable employer, assessing the actual rate of progress against the programme, have concluded that completion on time was unlikely without significant intervention? On the facts, the answer was plainly yes. Inadequate manpower, poor site management, and persistent failure to meet milestones all pointed to a contractor who was not proceeding regularly and diligently.</p>
+
+      <p class="finding-label">02 &nbsp;·&nbsp; Termination does not extinguish the LAD claim</p>
+      <p>The court rejected the argument that by electing to terminate, Daya CMT had taken an option that precluded it from claiming LAD. LAD is compensation for the delay caused by the contractor's breach — the employer's subsequent termination does not forgive the breach, waive the loss, or reduce the accrued entitlement to damages.</p>
+
+      <p class="finding-label">03 &nbsp;·&nbsp; Antecedent defaults support termination</p>
+      <p>An employer is entitled to rely on a pattern of defaults accumulated over the project period when exercising a right to terminate — it is not limited to pointing only to the most recent or most acute default. A contractor cannot escape termination by curing the last breach while the overall performance remains deficient.</p>
+
+      <p class="finding-label">04 &nbsp;·&nbsp; RM23.3 million LAD restored in full</p>
+      <p>The Court of Appeal found no justification in the evidence for the first instance reduction of the LAD award. The full RM23.3 million was restored. The reduction had been made without adequate legal or factual foundation.</p>
+    </section>
+
+  </div>
+
+  <div class="takeaways-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="section-label">Takeaways</p>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>A pattern of poor site management, even if no single incident would alone ground termination, can cumulatively justify it. Document every default notice and every missed milestone.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>Termination and LAD are not mutually exclusive. Employers can and should claim both — termination does not waive the delay claim.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>Contractors under default notices: act immediately and document your remediation efforts thoroughly. Partial improvement is not enough if overall progress remains deficient.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">—</span><p>The RM23.3 million outcome is a stark reminder that LAD clauses in Malaysian construction contracts carry real, enforceable bite.</p></div>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="signoff">
+      <p>Until next Saturday.</p>
+      <p class="signoff-name">Nivedha</p>
+      <p class="signoff-mark">⁂</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Nivedha at the Bar &nbsp;·&nbsp; Saturday Soliloquies</p>
+    <p style="margin-top:6px;"><a href="index.html" style="color:#A47E35;text-decoration:none;">&larr; Back to all publications</a></p>
+    <p style="margin-top:20px;padding-top:16px;border-top:1px solid #2e2018;font-size:9px;letter-spacing:0.06em;text-transform:none;line-height:1.8;color:#4a3e30;max-width:640px;margin-left:auto;margin-right:auto;">All content published herein (\"Content\") is provided for educational and informational purposes only and does not constitute legal or professional advice in any form or in relation to any specific matter. While reasonable efforts have been made to ensure accuracy, the author does not warrant or guarantee the completeness or correctness of the Content and expressly disclaims all liability for any loss or damage arising from any reliance placed on, or use made of, any part of the Content.</p>
+  </footer>
+
+</body>
+</html>
