@@ -37,6 +37,15 @@
     .nav-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); }
     .nav-about { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); text-decoration: none; }
     .nav-about:hover { color: var(--bone); }
+    .nav-links { display: flex; align-items: baseline; gap: 24px; }
+    .nav-subscribe { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background-color: var(--brass); text-decoration: none; padding: 6px 14px; }
+    .nav-subscribe:hover { background-color: var(--bone); }
+    /* SUBSCRIBE SECTION */
+    .subscribe-section { background-color: var(--ink); border-top: 2px solid var(--brass); border-bottom: 2px solid var(--brass); padding: 72px 48px; text-align: center; }
+    .subscribe-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 20px; }
+    .subscribe-heading { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4vw, 42px); font-weight: 400; font-style: italic; color: var(--bone); line-height: 1.2; margin-bottom: 12px; }
+    .subscribe-sub { font-size: 16px; line-height: 1.7; color: rgba(244,235,209,0.55); margin-bottom: 36px; }
+    .subscribe-frame { width: 100%; max-width: 560px; height: 80px; border: none; display: block; margin: 0 auto; }
 
     /* HERO */
     .hero {
@@ -138,6 +147,8 @@
       .issue-body { padding: 24px 20px; border-left: none; border-top: 3px solid transparent; }
       .issue-card:hover .issue-body { border-top-color: var(--brass); border-left-color: transparent; }
       footer { padding: 32px 20px; }
+      .subscribe-section { padding: 48px 20px; }
+      .nav-subscribe { display: none; }
     }
   </style>
 </head>
@@ -148,7 +159,10 @@
       <a href="index.html" class="nav-title">Nivedha <em>at the Bar</em></a>
       <span class="nav-tag">Saturday Soliloquies</span>
     </div>
-    <a href="about.html" class="nav-about">About</a>
+    <div class="nav-links">
+      <a href="about.html" class="nav-about">About</a>
+      <a href="https://nivedhaatthebar.beehiiv.com/subscribe" class="nav-subscribe" target="_blank">Subscribe</a>
+    </div>
   </nav>
 
   <div class="hero">
@@ -240,6 +254,13 @@
 
       </div>
     </div>
+  </div>
+
+  <div class="subscribe-section">
+    <p class="subscribe-label">&#8258; &nbsp; Never miss an issue</p>
+    <h2 class="subscribe-heading">Every Saturday, one case.</h2>
+    <p class="subscribe-sub">Malaysian construction law, clearly explained. Free.</p>
+    <iframe class="subscribe-frame" src="https://nivedhaatthebar.beehiiv.com/subscribe" scrolling="no"></iframe>
   </div>
 
   <footer>
