@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Limits of Direct Payment — Nivedha at the Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,500&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #ECE1C6;
+      --ink: #1A1612;
+      --port: #6E1F2D;
+      --port-dark: #4d1520;
+      --brass: #A47E35;
+      --bone: #F4EBD1;
+      --mist: rgba(164,126,53,0.2);
+    }
+    body { background-color: var(--port-dark); color: var(--bone); font-family: 'Source Serif 4', Georgia, serif; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      background-color: var(--port-dark);
+      border-bottom: 1px solid rgba(164,126,53,0.3);
+      padding: 22px 48px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .nav-title { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--bone); text-decoration: none; }
+    .nav-title em { font-style: italic; font-weight: 500; }
+    .nav-back { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); text-decoration: none; }
+    .nav-back:hover { color: var(--bone); }
+
+    .article { max-width: 700px; margin: 0 auto; padding: 0 48px 80px; }
+
+    .masthead { background: linear-gradient(160deg, var(--port) 0%, var(--port-dark) 60%, var(--ink) 100%); padding: 72px 48px 64px; border-bottom: 2px solid var(--brass); }
+    .masthead-inner { max-width: 700px; margin: 0 auto; }
+    .masthead-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 20px; }
+    .masthead-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4vw, 40px); font-weight: 500; font-style: italic; color: var(--bone); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 24px; }
+    .masthead-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b5e4a; padding-top: 20px; border-top: 1px solid #3a3028; }
+
+    section { padding: 48px 0; border-bottom: 1px solid var(--mist); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 16px; }
+    .finding-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9707e; margin-bottom: 8px; }
+
+    p { font-size: 18px; line-height: 1.8; color: rgba(244,235,209,0.8); margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+
+    .numbered-list { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+    .numbered-item { display: grid; grid-template-columns: 32px 1fr; gap: 8px; }
+    .numbered-item .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); font-weight: 500; padding-top: 4px; }
+    .numbered-item p { margin: 0; }
+
+    .pullquote-section { background-color: var(--port); margin: 0 -40px; padding: 56px 40px; border-bottom: none; }
+    .pullquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 3vw, 26px); font-weight: 400; font-style: italic; color: var(--bone); line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 20px; }
+    .pullquote-source { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin: 0; }
+    .pullquote-mark { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; color: var(--brass); margin-bottom: 20px; }
+
+    .takeaways-section { background-color: var(--ink); margin: 0 -40px; padding: 56px 40px; }
+    .takeaways-section .section-label { color: var(--brass); }
+    .takeaway-item { display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 18px 0; border-bottom: 1px solid #3a3028; }
+    .takeaway-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .takeaway-dash { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); padding-top: 3px; }
+    .takeaway-item p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--bone); }
+
+    .signoff { padding: 48px 0 0; }
+    .signoff p { margin-bottom: 8px; }
+    .signoff-name { font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-style: italic; color: var(--bone); }
+    .signoff-mark { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--brass); margin-top: 8px !important; }
+
+    footer { background-color: var(--ink); padding: 32px 40px; text-align: center; border-top: 2px solid var(--brass); }
+    footer p { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b5e4a; line-height: 1.8; font-size: 10px; margin: 0; }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .masthead { padding: 40px 20px 36px; }
+      .masthead-inner { padding: 0; }
+      .article { padding: 0 20px 60px; }
+      .pullquote-section { margin: 0 -20px; padding: 40px 20px; }
+      .takeaways-section { margin: 0 -20px; padding: 40px 20px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-title">Nivedha <em>at the Bar</em></a>
+    <a href="index.html" class="nav-back">&larr; All Publications</a>
+  </nav>
+
+  <div class="masthead">
+    <div class="masthead-inner">
+      <p class="masthead-tag">CIPAA &nbsp;·&nbsp; Section 30 &nbsp;·&nbsp; Direct Payment</p>
+      <h1 class="masthead-title">The Limits of Direct Payment: Section 30 and the &ldquo;Due or Payable&rdquo; Trap</h1>
+      <p class="masthead-meta">6 June 2026 &nbsp;·&nbsp; Saturday Soliloquies</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">In Brief</p>
+      <p>Section 30 of CIPAA 2012 gives a successful claimant a powerful tool: if the party ordered to pay defaults, the claimant can go directly to the principal and demand payment from funds owed up the chain. But the Court of Appeal in <em>Tri Pacific Engineering Sdn Bhd v KL Eco City Sdn Bhd</em> [2025] MLJU 1313 confirmed that this right is strictly bounded by what is actually &ldquo;due or payable&rdquo; at the moment the demand lands. Section 30 is a tap, not an open guarantee &mdash; and it only flows if there is money in the pipe.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Facts</p>
+      <p>Tri Pacific Engineering (subcontractor) obtained an adjudication decision against Ireka (main contractor) for approximately RM1.53 million in principal, interest, and costs. When Ireka failed to pay, Tri Pacific issued a Section 30 demand to the principal, KL Eco City.</p>
+      <p>KL Eco City paid RM998,653.66 &mdash; the balance retention sum it held for Ireka at the time of the demand. It refused to pay the remaining RM192,970.76, arguing that no further monies were &ldquo;due or payable&rdquo; to Ireka at the moment the demand was received. Tri Pacific brought proceedings to recover the balance.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Issues</p>
+      <p>Three questions arose for the Court of Appeal:</p>
+      <div class="numbered-list">
+        <div class="numbered-item"><span class="num">01</span><p>What does &ldquo;due or payable&rdquo; mean under Section 30(5), and when does the obligation to pay crystallise?</p></div>
+        <div class="numbered-item"><span class="num">02</span><p>Can a subcontractor rely on a Final Certificate issued after the Section 30 demand was served to claim additional sums?</p></div>
+        <div class="numbered-item"><span class="num">03</span><p>Can a point abandoned in the High Court be revived on appeal?</p></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="pullquote-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="pullquote-mark">&#8258;</p>
+      <p class="pullquote">&ldquo;Section 30 is the foundation and base for direct payment &mdash; but it can only be invoked if money is due or payable by the principal to the main contractor at the precise time the request is received.&rdquo;</p>
+      <p class="pullquote-source">Court of Appeal, [2025] MLJU 1313</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">The Findings</p>
+
+      <p class="finding-label">01 &nbsp;&middot;&nbsp; &ldquo;Due or payable&rdquo; requires a crystallised obligation at the time of demand</p>
+      <p>The Court adopted the broad interpretation from <em>HSL Ground Engineering</em>: &ldquo;due&rdquo; means a debt has accrued; &ldquo;payable&rdquo; means an obligation or liability to pay has arisen upon it being properly claimed. In a typical construction contract, that obligation crystallises when an Architect&rsquo;s Certificate &mdash; interim or final &mdash; is issued. No certificate, no obligation, no Section 30 entitlement.</p>
+
+      <p class="finding-label">02 &nbsp;&middot;&nbsp; The Final Certificate timing trap</p>
+      <p>Tri Pacific pointed to the Final Certificate issued in June 2023, which showed over RM5.4 million due to Ireka. The Court rejected this. Tri Pacific&rsquo;s Section 30 demand had been served in May 2023 &mdash; before that certificate existed. The additional RM87,916.92 that only became &ldquo;due&rdquo; upon the June certificate could not be captured by a demand served a month earlier. To claim those funds, Tri Pacific would have needed to issue a fresh demand after the certificate was issued. It did not.</p>
+
+      <p class="finding-label">03 &nbsp;&middot;&nbsp; The settlement agreement stood</p>
+      <p>The principal and main contractor had entered into a Settlement Agreement permitting set-off of debts from a separate project against sums owing in the current project. Tri Pacific sought to challenge the validity of that agreement before the Court of Appeal. The Court declined to hear it: Tri Pacific had abandoned that argument at the High Court stage, and the Court exercised its discretion not to allow it to be revived on appeal.</p>
+
+      <p class="finding-label">04 &nbsp;&middot;&nbsp; Appeal dismissed; adjudicated amount includes interest and costs</p>
+      <p>The Court confirmed &mdash; following <em>Pali PTP</em> &mdash; that the &ldquo;adjudicated amount&rdquo; for Section 30 purposes includes interest and costs awarded in the adjudication decision. That point was not in dispute. What sank Tri Pacific was the timing of its demand relative to the certification of funds, not the scope of the adjudicated sum.</p>
+    </section>
+
+  </div>
+
+  <div class="takeaways-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="section-label">Takeaways</p>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>Section 30 is powerful but strictly bounded. Before serving a demand, verify what the principal actually owes the main contractor at that precise moment. A demand served before a certificate is issued cannot capture funds that only crystallise afterward.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>Timing is everything. If a Final Certificate is anticipated, wait for it before serving the Section 30 demand &mdash; or issue a second demand once it is released. You cannot retroactively expand the scope of an earlier demand.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>Do not abandon points lightly. A point dropped at first instance is very difficult to revive on appeal. If settlement agreements or set-off arrangements affect the funds available, challenge them early and maintain that challenge throughout.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>The adjudicated amount for Section 30 purposes includes interest and costs &mdash; not just the principal sum. Do not leave those out of your demand.</p></div>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="signoff">
+      <p>Until next Saturday.</p>
+      <p class="signoff-name">Nivedha</p>
+      <p class="signoff-mark">&#8258;</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Nivedha at the Bar &nbsp;&middot;&nbsp; Saturday Soliloquies</p>
+    <p style="margin-top:6px;"><a href="index.html" style="color:#A47E35;text-decoration:none;">&larr; Back to all publications</a></p>
+    <p style="margin-top:10px;"><a href="https://nivedhaatthebar.beehiiv.com/subscribe" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#A47E35;text-decoration:none;">Subscribe &rarr;</a></p>
+    <p style="margin-top:20px;padding-top:16px;border-top:1px solid #2e2018;font-size:11px;letter-spacing:0;text-transform:none;line-height:1.7;color:#6b5e4a;text-align:left;">All content published herein (&ldquo;Content&rdquo;) is provided for educational and informational purposes only and does not constitute legal or professional advice in any form or in relation to any specific matter. While reasonable efforts have been made to ensure accuracy, the author does not warrant or guarantee the completeness or correctness of the Content and expressly disclaims all liability for any loss or damage arising from any reliance placed on, or use made of, any part of the Content.</p>
+  </footer>
+
+</body>
+</html>
