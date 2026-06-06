@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Notice That Wasn't — Nivedha at the Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,500&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #ECE1C6;
+      --ink: #1A1612;
+      --port: #6E1F2D;
+      --port-dark: #4d1520;
+      --brass: #A47E35;
+      --bone: #F4EBD1;
+      --mist: rgba(164,126,53,0.2);
+    }
+    body { background-color: var(--port-dark); color: var(--bone); font-family: 'Source Serif 4', Georgia, serif; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      background-color: var(--port-dark);
+      border-bottom: 1px solid rgba(164,126,53,0.3);
+      padding: 22px 48px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .nav-title { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--bone); text-decoration: none; }
+    .nav-title em { font-style: italic; font-weight: 500; }
+    .nav-back { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); text-decoration: none; }
+    .nav-back:hover { color: var(--bone); }
+
+    .article { max-width: 700px; margin: 0 auto; padding: 0 48px 80px; }
+
+    .masthead { background: linear-gradient(160deg, var(--port) 0%, var(--port-dark) 60%, var(--ink) 100%); padding: 72px 48px 64px; border-bottom: 2px solid var(--brass); }
+    .masthead-inner { max-width: 700px; margin: 0 auto; }
+    .masthead-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 20px; }
+    .masthead-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4vw, 40px); font-weight: 500; font-style: italic; color: var(--bone); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 24px; }
+    .masthead-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b5e4a; padding-top: 20px; border-top: 1px solid #3a3028; }
+
+    section { padding: 48px 0; border-bottom: 1px solid var(--mist); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 16px; }
+    .finding-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9707e; margin-bottom: 8px; }
+
+    p { font-size: 18px; line-height: 1.8; color: rgba(244,235,209,0.8); margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+
+    .numbered-list { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+    .numbered-item { display: grid; grid-template-columns: 32px 1fr; gap: 8px; }
+    .numbered-item .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); font-weight: 500; padding-top: 4px; }
+    .numbered-item p { margin: 0; }
+
+    .pullquote-section { background-color: var(--port); margin: 0 -40px; padding: 56px 40px; border-bottom: none; }
+    .pullquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 3vw, 26px); font-weight: 400; font-style: italic; color: var(--bone); line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 20px; }
+    .pullquote-source { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin: 0; }
+    .pullquote-mark { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; color: var(--brass); margin-bottom: 20px; }
+
+    .takeaways-section { background-color: var(--ink); margin: 0 -40px; padding: 56px 40px; }
+    .takeaways-section .section-label { color: var(--brass); }
+    .takeaway-item { display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 18px 0; border-bottom: 1px solid #3a3028; }
+    .takeaway-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .takeaway-dash { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); padding-top: 3px; }
+    .takeaway-item p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--bone); }
+
+    .signoff { padding: 48px 0 0; }
+    .signoff p { margin-bottom: 8px; }
+    .signoff-name { font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-style: italic; color: var(--bone); }
+    .signoff-mark { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--brass); margin-top: 8px !important; }
+
+    footer { background-color: var(--ink); padding: 32px 40px; text-align: center; border-top: 2px solid var(--brass); }
+    footer p { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b5e4a; line-height: 1.8; margin: 0; }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .masthead { padding: 40px 20px 36px; }
+      .masthead-inner { padding: 0; }
+      .article { padding: 0 20px 60px; }
+      .pullquote-section { margin: 0 -20px; padding: 40px 20px; }
+      .takeaways-section { margin: 0 -20px; padding: 40px 20px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-title">Nivedha <em>at the Bar</em></a>
+    <a href="index.html" class="nav-back">&larr; All Publications</a>
+  </nav>
+
+  <div class="masthead">
+    <div class="masthead-inner">
+      <p class="masthead-tag">Construction &nbsp;&middot;&nbsp; Loss &amp; Expense &nbsp;&middot;&nbsp; Notice Requirements &nbsp;&middot;&nbsp; PWD Form 203A</p>
+      <h1 class="masthead-title">The Notice That Wasn&rsquo;t: How Procedural Non-Compliance Dismantled a RM66 Million Claim</h1>
+      <p class="masthead-meta">13 June 2026 &nbsp;&middot;&nbsp; Saturday Soliloquies</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">In Brief</p>
+      <p>A contractor at Penang International Airport claimed approximately RM66.8 million. The employer counterclaimed RM9.69 million in LAD. After a full hearing, the High Court in <em>Sykt Pembinaan Anggerik Sdn Bhd v Malaysia Airports Holdings Bhd</em> [2022] 9 MLJ 391 awarded the contractor roughly RM10.6 million and reduced the LAD counterclaim to RM750,000. The rest fell away &mdash; not on the merits, but on procedure. Notice requirements that were not met, acceleration instructions that were never formalised, and an employer whose own delays made much of the LAD claim untenable.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Facts</p>
+      <p>Syarikat Pembinaan Anggerik Sdn Bhd (SPA) was appointed by Malaysia Airports Holdings Berhad (MAHB) as contractor for two packages of upgrading works at Penang International Airport under the PWD Form 203A standard contract. SPA claimed approximately RM66.8 million, comprising balance works, acceleration costs, prolongation costs (loss and expense), and interest.</p>
+      <p>MAHB counterclaimed for RM9.69 million in LAD for SPA&rsquo;s alleged failure to complete the works on time. The dispute raised questions about notice requirements under Clause 44, the prevention principle, the basis for acceleration claims, and the line between variations and ancillary work.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Issues</p>
+      <p>Four questions fell to be determined:</p>
+      <div class="numbered-list">
+        <div class="numbered-item"><span class="num">01</span><p>Were SPA&rsquo;s prolongation and loss and expense claims barred by failure to comply with the mandatory notice requirements under Clause 44 of the PWD Form 203A?</p></div>
+        <div class="numbered-item"><span class="num">02</span><p>Was MAHB entitled to LAD for the full period of delay, or did its own acts of prevention reduce that entitlement?</p></div>
+        <div class="numbered-item"><span class="num">03</span><p>Could SPA recover acceleration costs without a formal written instruction from the S.O. under Clause 5(a)?</p></div>
+        <div class="numbered-item"><span class="num">04</span><p>What distinguishes a compensable variation from ancillary work falling within the original scope of the contract?</p></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="pullquote-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="pullquote-mark">&#8258;</p>
+      <p class="pullquote">&ldquo;The notice requirements under Clause 44 are mandatory pre-conditions. Failure to comply within the stipulated time is fatal to a loss and expense claim. The court will not relieve a contractor of the consequences of its own procedural default.&rdquo;</p>
+      <p class="pullquote-source">High Court, [2022] 9 MLJ 391 &mdash; following Perbadanan Menteri Besar Kelantan</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">The Findings</p>
+
+      <p class="finding-label">01 &nbsp;&middot;&nbsp; Notice requirements are mandatory conditions precedent</p>
+      <p>The Court dismissed SPA&rsquo;s entire prolongation and loss and expense claim on this ground alone. Clause 44 of the PWD Form 203A requires the contractor to give written notice to the S.O. within one month of the occurrence of the delay event. SPA failed to do so. Following <em>Perbadanan Menteri Besar Kelantan</em>, the Court held that these requirements are to be construed strictly. Late notice is not curable. There is no equitable jurisdiction to overlook the failure. The claim simply does not arise.</p>
+
+      <p class="finding-label">02 &nbsp;&middot;&nbsp; The prevention principle applied &mdash; LAD reduced to 75 days</p>
+      <p>MAHB&rsquo;s counterclaim for RM9.69 million in LAD was substantially dismantled by the prevention principle. The Court found that MAHB had contributed to the delay through its own acts &mdash; ordering additional work, delays caused by MAHB&rsquo;s own direct contractors, and the S.O.&rsquo;s failure to grant extensions of time for delay events that were plainly attributable to MAHB. An employer cannot benefit from its own wrong by claiming LAD for periods where its own conduct prevented timely completion. The LAD entitlement was reduced to RM750,000, covering only the 75 days of delay for which SPA had no justification.</p>
+
+      <p class="finding-label">03 &nbsp;&middot;&nbsp; Acceleration claim dismissed &mdash; no formal instruction</p>
+      <p>SPA claimed the cost of accelerating the works but could not point to a formal written instruction from the S.O. under Clause 5(a) of the contract. Verbal discussions between the parties and informal proposals were insufficient. Acceleration costs under a standard-form construction contract require a specific contractual instruction &mdash; the fact that acceleration was discussed or informally agreed does not create a contractual entitlement to be paid for it. SPA&rsquo;s acceleration claim was dismissed entirely.</p>
+
+      <p class="finding-label">04 &nbsp;&middot;&nbsp; Deep excavation accepted as variation; ancillary work was not</p>
+      <p>The Court drew the distinction carefully. A contractor&rsquo;s obligation to complete the specified works carries with it an obligation to perform work that is &ldquo;indispensably or contingently necessary&rdquo; to achieve that completion &mdash; this is ancillary work and is priced into the contract. It is not a variation. However, the sheet piling required for excavation to 10.5 metres, where the original bills of quantities had contemplated a shallower depth, was accepted as a genuine variation: it exceeded the original scope in a way that was not reasonably foreseeable and not included in the original pricing.</p>
+
+      <p class="finding-label">05 &nbsp;&middot;&nbsp; Final outcome</p>
+      <p>SPA recovered approximately RM10.6 million for the balance value of works done and materials delivered across both packages. Its acceleration and prolongation claims &mdash; the bulk of the RM66.8 million claimed &mdash; were dismissed. MAHB&rsquo;s LAD counterclaim was reduced from RM9.69 million to RM750,000. The case is a stark illustration of how procedural compliance, not just the substantive merits, determines the outcome of construction claims.</p>
+    </section>
+
+  </div>
+
+  <div class="takeaways-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="section-label">Takeaways</p>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>Clause 44 notice is a condition precedent, not a formality. Miss the one-month window and the loss and expense claim is gone &mdash; regardless of how well-founded it would otherwise have been. Clock management is as important as quantum preparation.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>The prevention principle applies to S.O. failures as much as to employer acts. Where the S.O. withholds justified EOTs for employer-caused delays, the employer cannot rely on those ungranted extensions to sustain an LAD claim.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>Acceleration must be instructed in writing. Verbal discussions do not create a contractual right to additional payment. If you are accelerating at an employer&rsquo;s request, get the Clause 5(a) instruction before you mobilise the extra resources.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>Know the line between variations and ancillary work. Work that is necessary to achieve the contracted scope is already priced in. Only work that genuinely exceeds the original scope &mdash; as with the deeper excavation here &mdash; qualifies as a variation.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>This case and <em>Sim Chio Huat</em> read together tell the same story from both sides: the prevention principle protects contractors from LAD for employer-caused delays, but procedural defaults strip contractors of their own claims just as effectively.</p></div>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="signoff">
+      <p>Until next Saturday.</p>
+      <p class="signoff-name">Nivedha</p>
+      <p class="signoff-mark">&#8258;</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Nivedha at the Bar &nbsp;&middot;&nbsp; Saturday Soliloquies</p>
+    <p style="margin-top:6px;"><a href="index.html" style="color:#A47E35;text-decoration:none;">&larr; Back to all publications</a></p>
+    <p style="margin-top:10px;"><a href="https://nivedhaatthebar.beehiiv.com/subscribe" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#A47E35;text-decoration:none;">Subscribe &rarr;</a></p>
+    <p style="margin-top:20px;padding-top:16px;border-top:1px solid #2e2018;font-size:11px;letter-spacing:0;text-transform:none;line-height:1.7;color:#6b5e4a;text-align:left;">All content published herein is provided for educational and informational purposes only and does not constitute legal or professional advice in any form or in relation to any specific matter. While reasonable efforts have been made to ensure accuracy, the author does not warrant or guarantee the completeness or correctness of the content and expressly disclaims all liability for any loss or damage arising from any reliance placed on, or use made of, any part of the content.</p>
+  </footer>
+
+</body>
+</html>
