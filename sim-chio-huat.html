@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time at Large — Nivedha at the Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,500&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #ECE1C6;
+      --ink: #1A1612;
+      --port: #6E1F2D;
+      --port-dark: #4d1520;
+      --brass: #A47E35;
+      --bone: #F4EBD1;
+      --mist: rgba(164,126,53,0.2);
+    }
+    body { background-color: var(--port-dark); color: var(--bone); font-family: 'Source Serif 4', Georgia, serif; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      background-color: var(--port-dark);
+      border-bottom: 1px solid rgba(164,126,53,0.3);
+      padding: 22px 48px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .nav-title { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--bone); text-decoration: none; }
+    .nav-title em { font-style: italic; font-weight: 500; }
+    .nav-back { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); text-decoration: none; }
+    .nav-back:hover { color: var(--bone); }
+
+    .article { max-width: 700px; margin: 0 auto; padding: 0 48px 80px; }
+
+    .masthead { background: linear-gradient(160deg, var(--port) 0%, var(--port-dark) 60%, var(--ink) 100%); padding: 72px 48px 64px; border-bottom: 2px solid var(--brass); }
+    .masthead-inner { max-width: 700px; margin: 0 auto; }
+    .masthead-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 20px; }
+    .masthead-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4vw, 40px); font-weight: 500; font-style: italic; color: var(--bone); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 24px; }
+    .masthead-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b5e4a; padding-top: 20px; border-top: 1px solid #3a3028; }
+
+    section { padding: 48px 0; border-bottom: 1px solid var(--mist); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin-bottom: 16px; }
+    .finding-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9707e; margin-bottom: 8px; }
+
+    p { font-size: 18px; line-height: 1.8; color: rgba(244,235,209,0.8); margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+
+    .numbered-list { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+    .numbered-item { display: grid; grid-template-columns: 32px 1fr; gap: 8px; }
+    .numbered-item .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); font-weight: 500; padding-top: 4px; }
+    .numbered-item p { margin: 0; }
+
+    .pullquote-section { background-color: var(--port); margin: 0 -40px; padding: 56px 40px; border-bottom: none; }
+    .pullquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 3vw, 26px); font-weight: 400; font-style: italic; color: var(--bone); line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 20px; }
+    .pullquote-source { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass); margin: 0; }
+    .pullquote-mark { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.28em; color: var(--brass); margin-bottom: 20px; }
+
+    .takeaways-section { background-color: var(--ink); margin: 0 -40px; padding: 56px 40px; }
+    .takeaways-section .section-label { color: var(--brass); }
+    .takeaway-item { display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 18px 0; border-bottom: 1px solid #3a3028; }
+    .takeaway-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .takeaway-dash { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--brass); padding-top: 3px; }
+    .takeaway-item p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--bone); }
+
+    .signoff { padding: 48px 0 0; }
+    .signoff p { margin-bottom: 8px; }
+    .signoff-name { font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-style: italic; color: var(--bone); }
+    .signoff-mark { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--brass); margin-top: 8px !important; }
+
+    footer { background-color: var(--ink); padding: 32px 40px; text-align: center; border-top: 2px solid var(--brass); }
+    footer p { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b5e4a; line-height: 1.8; margin: 0; }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .masthead { padding: 40px 20px 36px; }
+      .masthead-inner { padding: 0; }
+      .article { padding: 0 20px 60px; }
+      .pullquote-section { margin: 0 -20px; padding: 40px 20px; }
+      .takeaways-section { margin: 0 -20px; padding: 40px 20px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-title">Nivedha <em>at the Bar</em></a>
+    <a href="index.html" class="nav-back">&larr; All Publications</a>
+  </nav>
+
+  <div class="masthead">
+    <div class="masthead-inner">
+      <p class="masthead-tag">Construction &nbsp;&middot;&nbsp; Time at Large &nbsp;&middot;&nbsp; Prevention Principle &nbsp;&middot;&nbsp; LAD</p>
+      <h1 class="masthead-title">You Cannot Claim LAD for a Delay You Caused: The Prevention Principle in Action</h1>
+      <p class="masthead-meta">13 June 2026 &nbsp;&middot;&nbsp; Saturday Soliloquies</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">In Brief</p>
+      <p>A landowner orders extra work. The contractor falls behind. The landowner then claims liquidated damages for the delay. The Federal Court in <em>Sim Chio Huat v Wong Ted Fui</em> [1983] 1 MLJ 151 had a clear answer: no. Where an employer&rsquo;s own acts of prevention cause or contribute to a delay, and the contract contains no mechanism to extend time, the completion date becomes unenforceable &mdash; time goes &ldquo;at large&rdquo; &mdash; and the LAD clause falls away with it. It remains one of the most important construction law decisions in Malaysian jurisprudence.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Facts</p>
+      <p>Sim Chio Huat (the developer/appellant) contracted with Wong Ted Fui (the landowner/respondent) to build four houses &mdash; two detached and two terrace &mdash; within stipulated completion periods of six and twelve months respectively. The contract expressly stated that time was of the essence.</p>
+      <p>The developer failed to deliver on time. Delays ranged from thirteen to nineteen months. During the construction period, the landowner requested additional works, which the developer carried out. The developer subsequently sued for the cost of the extra work. The landowner counterclaimed for liquidated damages under the contract.</p>
+    </section>
+
+    <section>
+      <p class="section-label">The Issues</p>
+      <p>Three questions fell to be determined:</p>
+      <div class="numbered-list">
+        <div class="numbered-item"><span class="num">01</span><p>Did the respondent waive his right to treat the contract as repudiated when the developer missed the original delivery dates?</p></div>
+        <div class="numbered-item"><span class="num">02</span><p>Could the respondent claim liquidated damages for delay where his own acts of prevention contributed to that delay and the contract contained no extension of time clause?</p></div>
+        <div class="numbered-item"><span class="num">03</span><p>Did the unliquidated damages clause survive independently of the failed LAD claim?</p></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="pullquote-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="pullquote-mark">&#8258;</p>
+      <p class="pullquote">&ldquo;Where an employer orders additional work and there is no provision for extending the time for completion, he cannot insist on the original completion date or recover liquidated damages for failure to meet it. Time becomes at large.&rdquo;</p>
+      <p class="pullquote-source">Federal Court, [1983] 1 MLJ 151 &mdash; applying Dodd v Churton [1897] 1 QB 562</p>
+    </div>
+  </div>
+
+  <div class="article">
+
+    <section>
+      <p class="section-label">The Findings</p>
+
+      <p class="finding-label">01 &nbsp;&middot;&nbsp; Waiver of time of the essence</p>
+      <p>The Federal Court held that although time was initially of the essence, the respondent had waived his right to treat the contract as repudiated. By allowing the delivery dates to pass without terminating the contract, continuing to engage with the developer, and &mdash; critically &mdash; ordering further work after the deadlines had been missed, the respondent elected to treat the contract as subsisting. Having made that election, he could not later rely on the original breach of the deadline as a ground for termination or damages.</p>
+
+      <p class="finding-label">02 &nbsp;&middot;&nbsp; The prevention principle</p>
+      <p>The respondent was himself responsible for contributing to the delay in two ways: first, by ordering extra work beyond the original scope; and second, by being late in delivering the site to the developer. Where an employer&rsquo;s own conduct prevents the contractor from completing by the stipulated date, it is inequitable to hold the contractor to that date. The prevention principle operates to relieve the contractor of the obligation to meet a deadline the employer made impossible to achieve.</p>
+
+      <p class="finding-label">03 &nbsp;&middot;&nbsp; No EOT clause &mdash; time at large</p>
+      <p>The contract contained no extension of time clause. This was fatal to the LAD claim. The court applied the rule from <em>Dodd v Churton</em> [1897] 1 QB 562: where an employer orders additional work that causes delay, and the contract provides no mechanism to extend the completion date to account for that delay, time becomes &ldquo;at large.&rdquo; Once time is at large, there is no fixed date from which liquidated damages can be calculated. The LAD clause became unenforceable. The contractor&rsquo;s obligation became simply to complete within a reasonable time.</p>
+
+      <p class="finding-label">04 &nbsp;&middot;&nbsp; Unliquidated damages under Clause 10 survived</p>
+      <p>The failure of the LAD claim did not extinguish all remedies. The court upheld a separate award for unliquidated damages under Clause 10 of the contract, which required the developer to build a temporary house for the respondent to occupy during construction. The developer had failed to do so. This was an independent contractual obligation unaffected by the time at large issue, and the respondent was entitled to damages for that specific breach.</p>
+    </section>
+
+  </div>
+
+  <div class="takeaways-section">
+    <div style="max-width:700px;margin:0 auto;padding:0 40px;">
+      <p class="section-label">Takeaways</p>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>An employer who orders extra work without an EOT clause in the contract risks losing the entire LAD entitlement. The absence of an EOT mechanism is the critical vulnerability &mdash; without it, any employer-caused delay sends time at large.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>The prevention principle is not limited to ordering variations. Late site delivery, late provision of information, and any other act of prevention by the employer can trigger it. Employers carry more risk than they often appreciate.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>Waiving &ldquo;time of the essence&rdquo; by conduct is easier than most parties expect. Allowing a deadline to pass and continuing to engage with the other side &mdash; especially by instructing more work &mdash; is sufficient. Once waived, you cannot rely on the original deadline.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p>Independent obligations survive time going at large. The LAD clause fell, but the separate obligation to build a temporary house and the unliquidated damages for that breach remained intact. Not all of the contract collapses with the completion date.</p></div>
+      <div class="takeaway-item"><span class="takeaway-dash">&mdash;</span><p><em>Sim Chio Huat</em> remains the foundational Malaysian authority on time at large and the prevention principle. Know it. It comes up in almost every construction delay dispute where variations have been ordered.</p></div>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="signoff">
+      <p>Until next Saturday.</p>
+      <p class="signoff-name">Nivedha</p>
+      <p class="signoff-mark">&#8258;</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Nivedha at the Bar &nbsp;&middot;&nbsp; Saturday Soliloquies</p>
+    <p style="margin-top:6px;"><a href="index.html" style="color:#A47E35;text-decoration:none;">&larr; Back to all publications</a></p>
+    <p style="margin-top:10px;"><a href="https://nivedhaatthebar.beehiiv.com/subscribe" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#A47E35;text-decoration:none;">Subscribe &rarr;</a></p>
+    <p style="margin-top:20px;padding-top:16px;border-top:1px solid #2e2018;font-size:11px;letter-spacing:0;text-transform:none;line-height:1.7;color:#6b5e4a;text-align:left;">All content published herein is provided for educational and informational purposes only and does not constitute legal or professional advice in any form or in relation to any specific matter. While reasonable efforts have been made to ensure accuracy, the author does not warrant or guarantee the completeness or correctness of the content and expressly disclaims all liability for any loss or damage arising from any reliance placed on, or use made of, any part of the content.</p>
+  </footer>
+
+</body>
+</html>
